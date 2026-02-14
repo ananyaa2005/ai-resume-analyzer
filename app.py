@@ -8,7 +8,8 @@ genai.configure(api_key="AIzaSyADk25-xXGgRgCYpwAFKZuVt8RkPS17Xbc")
 
 
 # Load Gemini Model
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("gemini-1.5-flash-latest")
+
 
 
 # -------------------------------
@@ -51,4 +52,5 @@ if st.button("🚀 Analyze Resume"):
 
             st.success("✅ Analysis Complete!")
             st.write(response.text)
+
 
