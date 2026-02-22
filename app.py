@@ -1,14 +1,14 @@
 import streamlit as st
 import google.generativeai as genai
 
-# -------------------------------
-# 🔐 Add Your Gemini API Key Here
-# -------------------------------
-genai.configure(api_key="AIzaSyADk25-xXGgRgCYpwAFKZuVt8RkPS17Xbc")
+if "GEMINI_API_KEY" not in st.secrets:
+    st.error("API key not found. Please add it in Streamlit Secrets.")
+    st.stop()
 
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-# Load Gemini Model
-model = genai.GenerativeModel("gemini-1.5-flash-latest")
+model = genai.GenerativeModel("gemini-pro")
+
 
 
 
@@ -52,5 +52,6 @@ if st.button("🚀 Analyze Resume"):
 
             st.success("✅ Analysis Complete!")
             st.write(response.text)
+
 
 
