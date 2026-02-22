@@ -7,7 +7,7 @@ if "GEMINI_API_KEY" not in st.secrets:
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 
@@ -52,6 +52,7 @@ if st.button("🚀 Analyze Resume"):
 
             st.success("✅ Analysis Complete!")
             st.write(response.text)
+
 
 
 
